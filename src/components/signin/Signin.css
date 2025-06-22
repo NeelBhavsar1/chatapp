@@ -1,0 +1,107 @@
+.signin-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    margin: 150px auto 0;
+    width: fit-content;
+    padding: 80px 100px;
+    border: 2px solid rgba(255, 255, 255, 0.18);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(30px) saturate(180%);
+    color: black;
+    min-width: 700px;
+    
+
+}
+
+.header {
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+}
+
+.input {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    text-align: center;
+    align-items: center;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    padding: 10px 20px;
+    border-radius: 30px;
+
+}
+
+.input img {
+    width: 20px;
+    height: 20px;
+    margin-right: 10px;
+}
+
+.input input {
+    width: 400px;
+    border: none;
+    padding: 10px 20px;
+    display: flex;
+    text-align: left;
+    background: transparent;
+    font-size: 1.5rem;
+    color: black;
+    outline: none;
+}
+
+.forgot-password {
+    margin-top: 10px;
+    width: 100%;
+    text-align: left;
+    margin-left: 24px;
+    margin-bottom: 15px;
+
+    font-size: 1.3rem;
+}
+
+.forgot-password span {
+    color: blue;
+    font-weight: 500;
+}
+
+.forgot-password span:hover {
+    cursor: pointer;
+}
+
+.submit {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    margin-top: 30px;
+    gap: 20px;
+}
+
+.submit button {
+    flex: 1;
+    padding: 10px 30px;
+    font-size: 1.3rem;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, 0.4);
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 30px;
+
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+}
+
+.submit button:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.5);
+}
+
