@@ -14,11 +14,6 @@ const App = () => {
       <Detail />
 
       
-      
-      
-      
-      
-      
       {/*<Signin />*/}
     </div>
   )
