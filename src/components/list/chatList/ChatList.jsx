@@ -4,6 +4,8 @@ import search_icon from '../../../assets/search.png'
 import add_icon from '../../../assets/plus.png'
 import minus_icon from '../../../assets/minus.png'
 import user_icon from '../../../assets/user1.png' 
+import AddUser from './addUser/addUser'
+
 
 const ChatList = () => {
 
@@ -14,7 +16,8 @@ const ChatList = () => {
     }
 
   return (
-    <div className='list'>
+    <>
+    <div className='chatlist'>
         <div className="search">
             <div className="searchBar">
                 <img src={search_icon} alt="" />
@@ -43,8 +46,10 @@ const ChatList = () => {
                 <p>Latest message!</p>
             </div>
         </div>
-        
+    
     </div>
+    { changeIcon && <AddUser />}
+    </>
   )
 }
 
