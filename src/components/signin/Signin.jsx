@@ -3,12 +3,19 @@ import './Signin.css'
 import user_icon from '../../assets/user.png'
 import email_icon from '../../assets/email.png'
 import password_icon from '../../assets/password.png'
+import { toast } from 'react-toastify'
+
 
 const Signin = () => {
+
+    const handleLogin = (e) => {
+        toast.success("Hello!")
+    }
+
   return (
     <div className="signin-container">
         <div className="header">
-            <h1>Sign in</h1>
+            <h1>Sign Up</h1>
         </div>
 
         <div className="inputs">
@@ -31,9 +38,10 @@ const Signin = () => {
         </div>
 
         <div className="submit">
-            <button>Sign up</button>
+            <button onClick={handleLogin}>Sign up</button>
             <button>Login</button>
         </div>
+
     </div>
   )
 }

@@ -59,6 +59,57 @@
 .center {
     padding: 20px;
     flex: 1;
+    overflow: scroll;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.message {
+    max-width: 70%;
+    display: flex;
+    gap: 20px;
+
+    &.own {
+        align-self: flex-end;
+       
+
+        .text {
+            p {
+                background-color: white;
+            }
+        }
+    }
+
+    img {
+        width: 40px;
+        height: 40px;
+        object-fit: cover;
+    }
+
+    .text {
+       flex: 1;
+       display: flex;
+       flex-direction: column;
+       gap: 5px; 
+
+
+       img {
+        width: 100%;
+        height: 300px;
+        border-radius: 10px;
+        object-fit: cover;
+       }
+       p {
+        padding: 20px;
+        background-color:  rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+       }
+
+       span {
+        font-size: 13px;
+       }
+    }
 }
 
 .bottom {
@@ -124,3 +175,22 @@ input {
     left: 0;
 }
 
+
+.center::-webkit-scrollbar {
+  width: 8px;
+}
+
+.center::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.center::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3); /* Light scroll thumb */
+  border-radius: 10px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+}
+
+.center::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.5); /* Hover effect */
+}

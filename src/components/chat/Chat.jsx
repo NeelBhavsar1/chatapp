@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useRef, useState } from 'react'
 import './Chat.css'
 import user_icon from '../../assets/user1.png'
 import video_icon from '../../assets/cam-recorder.png'
@@ -10,10 +10,18 @@ import camera_icon from '../../assets/camera.png'
 import microphone_icon from '../../assets/microphone.png'
 import EmojiPicker from 'emoji-picker-react'
 
+
+
 const Chat = () => {
 
   const [usingEmoji, setUsingEmoji] = useState(false)
   const [text, setText] = useState("")
+
+  const endRef = useRef(null)
+
+  useEffect(() => {
+    endRef.current?.scrollIntoView({behavior: "smooth" })
+  }, [])
 
   const EmojiOpen = () => {
     setUsingEmoji(!usingEmoji)
@@ -42,7 +50,69 @@ const Chat = () => {
           <img src={info_icon} alt="" />
         </div>
       </div>
-      <div className="center"></div>
+      <div className="center">
+        <div className="message">
+          <img src={user_icon} alt="" />
+          <div className="text">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+              Aspernatur non odit numquam vero officiis maiores nihil aut, 
+              accusamus temporibus dolores enim nemo odio ab. 
+              Alias eligendi esse officiis odio quos!</p>
+            <span>1 minute ago</span>
+          </div>
+        </div>
+        <div className="message own">
+          
+          <div className="text">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+              Aspernatur non odit numquam vero officiis maiores nihil aut, 
+              accusamus temporibus dolores enim nemo odio ab. 
+              Alias eligendi esse officiis odio quos!</p>
+            <span>1 minute ago</span>
+          </div>
+        </div>
+        <div className="message">
+          <img src={user_icon} alt="" />
+          <div className="text">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+              Aspernatur non odit numquam vero officiis maiores nihil aut, 
+              accusamus temporibus dolores enim nemo odio ab. 
+              Alias eligendi esse officiis odio quos!</p>
+            <span>1 minute ago</span>
+          </div>
+        </div>
+        <div className="message own">
+          <img src={user_icon} alt="" />
+          <div className="text">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+              Aspernatur non odit numquam vero officiis maiores nihil aut, 
+              accusamus temporibus dolores enim nemo odio ab. 
+              Alias eligendi esse officiis odio quos!</p>
+            <span>1 minute ago</span>
+          </div>
+        </div>
+        <div className="message">
+          <img src={user_icon} alt="" />
+          <div className="text">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+              Aspernatur non odit numquam vero officiis maiores nihil aut, 
+              accusamus temporibus dolores enim nemo odio ab. 
+              Alias eligendi esse officiis odio quos!</p>
+            <span>1 minute ago</span>
+          </div>
+        </div>
+        <div className="message">
+          <img src={user_icon} alt="" />
+          <div className="text">
+            <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. 
+              Aspernatur non odit numquam vero officiis maiores nihil aut, 
+              accusamus temporibus dolores enim nemo odio ab. 
+              Alias eligendi esse officiis odio quos!</p>
+            <span>1 minute ago</span>
+          </div>
+        </div>
+        <div ref={endRef}></div>
+      </div>
       <div className="bottom">
         <div className="icons">
           <img src={image_icon} alt="" />

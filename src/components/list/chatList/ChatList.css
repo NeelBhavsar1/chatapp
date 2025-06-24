@@ -17,7 +17,7 @@
     display: flex;
     align-items: center;
     gap: 15px;
-    padding: 10px;
+    padding: 7px;
 }
 
 .searchBar {
@@ -25,9 +25,8 @@
     background-color: rgba(255, 255, 255, 0.15);
     display: flex;
     align-items: center;
-    gap: 1px;
     border-radius: 10px;
-    padding: 5px;
+    padding: 2px;
 }
 
 .searchBar input {
@@ -37,6 +36,7 @@
     flex: 1;
     color: white;
     font-size: 20px;
+    height: 60px;
 
 }
 
@@ -44,10 +44,14 @@
     color: white;
 }
 
+.searchBar img {
+    margin-left: 5px;
+    width: 40px;
+    height: 40px;
+}
+
 .add {
     width: 50px;
-    background-color: rgba(255, 255, 255, 0.15);
-
     border-radius: 10px;
     cursor: pointer;
 
