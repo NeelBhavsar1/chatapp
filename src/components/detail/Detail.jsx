@@ -4,6 +4,7 @@ import arrowup_icom from '../../assets/arrowup.png'
 import arrowdown_icon from '../../assets/arrowdown.png'
 import download_icom from '../../assets/download.png'
 import user_icon from '../../assets/user1.png'
+import { auth } from '../../lib/firebase'
 
 const Detail = () => {
   return (
@@ -49,7 +50,7 @@ const Detail = () => {
           </div>
         </div>
         <button className='block-btn'>Block User</button>
-        <button className='logout-btn'>Logout</button>
+        <button className='logout-btn' onClick={() => auth.signOut()}>Logout</button>
       </div>
     </div>
   )
