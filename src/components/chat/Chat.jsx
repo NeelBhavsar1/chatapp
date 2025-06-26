@@ -14,6 +14,16 @@ import { db } from '../../lib/firebase'
 import { useChatStore, useUserStore } from '../../lib/chatStore'
  
 
+/*
+image upload features for selecting and previewing images 
+have not been implemented due to firebase storage for uploading and 
+hosting images which requires billing.
+
+intentional as my project is hosted online for public usage and could
+generate unintended costs even if accidental.
+i have chosen not to risk potential charges caused by anonymous users uploading content 
+and consuming bandwidth or storage.
+*/
 
 const Chat = () => {
 
@@ -21,8 +31,16 @@ const Chat = () => {
   const [text, setText] = useState("")
   const [chat, setChat] = useState()
 
-  const {chatId, user} = useChatStore()
+  const {chatId, user, isCurrentUserBlocked, isReceiverBlocked } = useChatStore()
   const {currentUser} = useUserStore()
+
+  //image state setup
+
+  const [img, setImg] = useState({
+    file: null,
+    url: "",
+  })
+   
 
   const endRef = useRef(null)
 
@@ -53,19 +71,27 @@ const Chat = () => {
 
   //console.log(chat)
 
-
   const handleSend = async() => {
     if (text === "") {
       return;
     }
 
+    let imgUrl = null;
+    
+
 
     try {
+
+      if (img.file) {
+        imgUrl = await upload(img.file)
+      }
+
       await updateDoc(doc(db, "chats", chatId), {
         messages:arrayUnion({
           senderId: currentUser.id,
           text,
           createdAt: new Date(),
+          ...(imgUrl && {img: imgUrl}),
         })
       })
 
@@ -98,13 +124,32 @@ const Chat = () => {
   }
 
 
+  //function sets selected file
+  const handleImage = (e) => {
+    if (e.target.files[0]) {
+      setImg ({
+        file: e.target.files[0],
+        url: URL.createObjectURL(e.target.files[0]),
+      })
+
+    }
+
+    setImg({
+      file:null,
+      url:""
+    })
+
+    setText("")
+  }
+
+
   return (
     <div className='chat'>
       <div className="top">
         <div className="user">
           <img src={user_icon} alt="" />
           <div className="text">
-            <span>Jane Doe</span>
+            <span>{user?.username}</span>
             <p>Lorem ipsum dolor sit, amet.</p>
           </div>
         </div>
@@ -122,7 +167,7 @@ const Chat = () => {
         
 
         
-        <div className="message own" key={message?.createdAt}>
+        <div className={message.senderId === currentUser?.id ? "message own" : "message" } key={message?.createdAt}>
           <img src={user_icon} alt="" />
           <div className="text">
             {message.img && <img src={message.img} alt=""/>}
@@ -134,23 +179,37 @@ const Chat = () => {
         
         ))}
 
+        { img.url && (<div className="message own">
+          <div className="text">
+            <img src={img.url} alt="" />
+          </div>
+        </div>
+      )}
         <div ref={endRef}></div>
       </div>
       <div className="bottom">
         <div className="icons">
-          <img src={image_icon} alt="" />
+          <label htmlFor="file">
+            <img src={image_icon} alt="" />
+          </label>
+          <input type="file" id="file" style={{display:"none"}} onChange={handleImage}/>
           <img src={camera_icon} alt="" />
           <img src={microphone_icon} alt="" />
         </div>
 
-        <input type="text" placeholder='Type a message...' value={text} onChange={e => setText(e.target.value)}/>
+        <input type="text" 
+        placeholder={ (isCurrentUserBlocked || isReceiverBlocked) ? "You cannot send a message!" :  "Type a message..."} 
+        value={text} 
+        onChange={e => setText(e.target.value)} disabled={isCurrentUserBlocked || isReceiverBlocked}/>
+
+
         <div className="emoji">
           <img src={emoji_icon} alt="" onClick={() => EmojiOpen()}/>
           <div className="picker">
             <EmojiPicker open={usingEmoji} onEmojiClick={handleEmoji}/>
           </div>
         </div>
-        <button className='send-btn' onClick={handleSend}>Send</button>
+        <button className='send-btn' onClick={handleSend} disabled={isCurrentUserBlocked || isReceiverBlocked}>Send</button>
         
       </div>
     </div>
