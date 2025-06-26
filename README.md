@@ -23,3 +23,7 @@ The app leverages Firebase as a Backend-as-a-Service (BaaS), providing authentic
 - For your application to work, please get a free API key from firebase and place it into the firebase.js file located in src.
 
 
+![image](https://github.com/user-attachments/assets/3c287530-2881-49f3-8ae8-e08c37033a9c)
+![image](https://github.com/user-attachments/assets/44557d7b-2128-4114-9e8f-35e79b3e0d80)
+
+
