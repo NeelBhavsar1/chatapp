@@ -1,12 +1,25 @@
-# React + Vite
+# React Firebase Chat App
+- A real-time chat application built with React, Firebase, and Vite.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Features
+- User authentication using Firebase Email/Password Authentication
+- - Real-time chat messaging powered by Firebase Firestore
+- Firestore security rules to protect user data and restrict access to authenticated users
+- Fast development and optimized build using Vite
 
-Currently, two official plugins are available:
+## How It Works
+The app leverages Firebase as a Backend-as-a-Service (BaaS), providing authentication, real-time database, and hosting capabilities without the need for custom backend code. Users can sign up and sign in, send messages, and see new messages appear instantly in the chat room thanks to Firestore’s real-time synchronization.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Technologies
+- React
+- Firebase Authentication & Firestore
+- Vite
+- JavaScript, HTML, CSS
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## Notes
+- For your application to work, please get a free API key from firebase and place it into the firebase.js file located in src.
+
+
