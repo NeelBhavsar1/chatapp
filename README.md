@@ -3,7 +3,7 @@
 
 ## Features
 - User authentication using Firebase Email/Password Authentication
-- - Real-time chat messaging powered by Firebase Firestore
+- Real-time chat messaging powered by Firebase Firestore
 - Firestore security rules to protect user data and restrict access to authenticated users
 - Fast development and optimized build using Vite
 
