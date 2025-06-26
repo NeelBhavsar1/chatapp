@@ -4,9 +4,11 @@ import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth"
 import { getFirestore } from "firebase/firestore"
 import {getStorage} from "firebase/storage"
+//REMEMBER TO INSERT YOUR OWN API KEY INTO HERE, FOR THE PROJECT TO WORK!
+
 
 const firebaseConfig = {
-  apiKey: "AIzaSyAvo2l5HKqohQR8bM4Rh0Ogwd3TU-aTXrs",
+  apiKey: "INSERT YOUR FIREBASE API KEY HERE!",
   authDomain: "reactchatapp-b814a.firebaseapp.com",
   projectId: "reactchatapp-b814a",
   storageBucket: "reactchatapp-b814a.firebasestorage.app",
