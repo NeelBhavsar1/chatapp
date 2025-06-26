@@ -23,6 +23,8 @@ const ChatList = () => {
 
     const [changeIcon, setChangeIcon] = useState(false)
 
+    const [input, setInput] = useState("")
+
     const handler = () => {
         setChangeIcon(!changeIcon)
     }
@@ -91,6 +93,8 @@ const ChatList = () => {
 
     }
 
+    const filteredChats = chats.filter(c => c.user.username.toLowerCase().includes(input.toLowerCase()))
+
 
 
   return (
@@ -99,11 +103,11 @@ const ChatList = () => {
         <div className="search">
             <div className="searchBar">
                 <img src={search_icon} alt="" />
-                <input type="text" placeholder='Search' />
+                <input type="text" placeholder='Search' onChange={(e) => setInput(e.target.value)}/>
             </div>
             <img src={changeIcon ? minus_icon : add_icon} alt=""  className='add' onClick={() => handler()}/>
         </div>
-        {chats.map(chat => (
+        {filteredChats.map(chat => (
             <div className="item" 
             key={chat.chatId} 
             onClick={() => handleSelect(chat)}
@@ -114,7 +118,8 @@ const ChatList = () => {
             >
                 <img src={user_icon} alt="" />
                 <div className="text">
-                    <span>{chat.user.username}</span>
+                    <span>{chat.user.blocked.includes(currentUser.id)
+                        ? "User" : chat.user.username}</span>
                     <p>{chat.lastMessage}</p>
                 </div>
             </div>
